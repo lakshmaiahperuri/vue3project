@@ -9,7 +9,9 @@
             />
           </div>
           <div class="box">
+            <router-link to="bookingForm">
             <button class="button is-primary">Book now</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -21,7 +23,9 @@
             />
           </div>
           <div class="box">
+            <router-link to="/bookingForm">
             <button class="button is-primary">Book now</button>
+            </router-link>
           </div>
         </div>
       </div>

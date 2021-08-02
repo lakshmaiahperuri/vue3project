@@ -28,22 +28,30 @@
 <script>
 import { reactive } from 'vue'
 import BookingDataService from '../services/bookings'
+import { ElNotification } from 'element-plus';
+import router from 'vue';
 export default ({
  setup(){
   const booking = reactive({name:'',date:'',email:'',number:'',from:'',to:''})
   const createBooking= async()=>{
-    if(booking.name||booking.email||booking.number||booking.date||booking.from||booking.to===""){
-        alert("please enter all the details");
-    }
-    else{
+    // if(booking.name||booking.email||booking.number||booking.date||booking.from||booking.to===""){
+    //     alert("please enter all the details");
+    // }
+    // else{
     await BookingDataService.create(booking);
-     alert("booking confirmed");
-    window.location.reload();
+     ElNotification({
+          title: 'Success',
+          message: 'Booking confirmed',
+          type: 'success',
+          position:'top-left'
+        });
+        window.location.reload();
+        router.push({
+                  name:"/menu"});
      console.log(booking,"lakshmaiah");
-    }
   }
 return{booking,createBooking}
-  }
+ }
 })
 </script>
 <style scoped>
